@@ -1,4 +1,5 @@
 import "./PowerPuffEye.js";
+import "./PowerPuffLeg.js";
 
 class PowerPuffGirl extends HTMLElement {
   constructor() {
@@ -112,15 +113,9 @@ class PowerPuffGirl extends HTMLElement {
         <div class="body"></div>
       </div>
       <div class="legs">
-        <div class="left leg">
-          <div class="shoe">
-            <div class="sock"></div>
-          </div>
-        </div>
-        <div class="right leg">
-          <div class="shoe">
-            <div class="sock"></div>
-          </div>
+        <power-puff-leg class="left"></power-puff-leg>
+        <power-puff-leg class="right up"></power-puff-leg>
+
         </div>
       </div>
     </div>`;
