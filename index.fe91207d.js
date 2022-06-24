@@ -1,4 +1,4 @@
-const n=function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))d(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const i of r.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&d(i)}).observe(document,{childList:!0,subtree:!0});function a(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerpolicy&&(r.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?r.credentials="include":e.crossorigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function d(e){if(e.ep)return;e.ep=!0;const r=a(e);fetch(e.href,r)}};n();class o extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
+const l=function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))d(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const i of t.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&d(i)}).observe(document,{childList:!0,subtree:!0});function n(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function d(e){if(e.ep)return;e.ep=!0;const t=n(e);fetch(e.href,t)}};l();class o extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
       :host {
         width: calc(var(--width) * 0.65);
         height: 100%;
@@ -45,6 +45,24 @@ const n=function(){const t=document.createElement("link").relList;if(t&&t.suppor
       </div>
     </div>
     `}}customElements.define("power-puff-eye",o);class s extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
+      :host {
+        --width: 50px;
+        --height: 20px;
+
+        width: var(--width);
+        height: var(--height);
+        display: flex;
+        background: #fff;
+      }
+
+      :host(.up){
+
+      }
+    `}connectedCallback(){this.render()}render(){this.shadowRoot.innerHTML=`
+    <style>${s.styles}</style>
+    <div class="shoe">
+      <div class="sock"></div>
+    </div>`}}customElements.define("power-puff-leg",s);class a extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
       :host {
         --width: 225px;
         --height: calc(var(--width) + calc(var(--width) * 0.3));
@@ -127,7 +145,7 @@ const n=function(){const t=document.createElement("link").relList;if(t&&t.suppor
           );
       }
     `}connectedCallback(){this.render()}render(){this.shadowRoot.innerHTML=`
-    <style>${s.styles}</style>
+    <style>${a.styles}</style>
     <div class="container">
       <div class="head">
         <div class="hair"></div>
@@ -141,15 +159,9 @@ const n=function(){const t=document.createElement("link").relList;if(t&&t.suppor
         <div class="body"></div>
       </div>
       <div class="legs">
-        <div class="left leg">
-          <div class="shoe">
-            <div class="sock"></div>
-          </div>
-        </div>
-        <div class="right leg">
-          <div class="shoe">
-            <div class="sock"></div>
-          </div>
+        <power-puff-leg class="left"></power-puff-leg>
+        <power-puff-leg class="right up"></power-puff-leg>
+
         </div>
       </div>
-    </div>`}}customElements.define("power-puff-girl",s);
+    </div>`}}customElements.define("power-puff-girl",a);
