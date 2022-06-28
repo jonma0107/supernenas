@@ -8,7 +8,7 @@ class PowerPuffGirl extends HTMLElement {
   }
 
   static get styles() {
-    return /* css */`
+    return /* css */ `
       :host {
         --width: 225px;
         --height: calc(var(--width) + calc(var(--width) * 0.3));
@@ -77,6 +77,8 @@ class PowerPuffGirl extends HTMLElement {
           drop-shadow(0 -2px 0 #000),
           drop-shadow(0 2px 0 #000);
         transform: translateY(-5%);
+        z-index: 2;
+        position: relative;
       }
       .body-container .body {
         width: 100%;
@@ -89,6 +91,11 @@ class PowerPuffGirl extends HTMLElement {
             #000 28% 71%,
             var(--power-puff-color) 60% 100%
           );
+      }
+
+      .legs {
+        display: flex;
+        z-index: 5;
       }
     `;
   }
