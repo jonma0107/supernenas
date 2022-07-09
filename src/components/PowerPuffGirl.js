@@ -38,7 +38,7 @@ class PowerPuffGirl extends HTMLElement {
         box-shadow: 0 3px 0 #0005;
         z-index: 5;
       }
-      .hair {
+      :host(.bubbles) .hair {
         width: 100%;
         height: 40%;
         background:

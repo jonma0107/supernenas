@@ -34,7 +34,7 @@ class PowerPuffLeg extends HTMLElement {
         background: #000;
         border-radius: 0 0 50% 50%;
         position: absolute;
-        transform: translate(-10%, 75%);
+        transform: translate(-8%, 75%);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -50,6 +50,7 @@ class PowerPuffLeg extends HTMLElement {
 
       :host(.up) .shoe {
         transform: translate(-10%, 25%);
+        border-radius: 15% 15% 50% 50%;
       }
     `;
   }
