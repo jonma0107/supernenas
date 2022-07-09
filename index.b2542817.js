@@ -1,4 +1,4 @@
-const l=function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))d(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const i of t.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&d(i)}).observe(document,{childList:!0,subtree:!0});function n(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function d(e){if(e.ep)return;e.ep=!0;const t=n(e);fetch(e.href,t)}};l();class o extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
+const c=function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const i of t.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&n(i)}).observe(document,{childList:!0,subtree:!0});function l(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function n(e){if(e.ep)return;e.ep=!0;const t=l(e);fetch(e.href,t)}};c();class s extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
       :host {
         width: calc(var(--width) * 0.65);
         height: 100%;
@@ -38,13 +38,13 @@ const l=function(){const r=document.createElement("link").relList;if(r&&r.suppor
         transform: translateX(70%);
       }
     `}connectedCallback(){this.render()}render(){this.shadowRoot.innerHTML=`
-    <style>${o.styles}</style>
+    <style>${s.styles}</style>
     <div class="iris">
       <div class="pupil">
         <div class="shine"></div>
       </div>
     </div>
-    `}}customElements.define("power-puff-eye",o);class s extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
+    `}}customElements.define("power-puff-eye",s);class o extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
       :host {
         --width: 30px;
         --height: 30px;
@@ -73,7 +73,7 @@ const l=function(){const r=document.createElement("link").relList;if(r&&r.suppor
         background: #000;
         border-radius: 0 0 50% 50%;
         position: absolute;
-        transform: translate(-10%, 75%);
+        transform: translate(-8%, 75%);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -89,12 +89,13 @@ const l=function(){const r=document.createElement("link").relList;if(r&&r.suppor
 
       :host(.up) .shoe {
         transform: translate(-10%, 25%);
+        border-radius: 15% 15% 50% 50%;
       }
     `}connectedCallback(){this.render()}render(){this.shadowRoot.innerHTML=`
-    <style>${s.styles}</style>
+    <style>${o.styles}</style>
     <div class="shoe">
       <div class="sock"></div>
-    </div>`}}customElements.define("power-puff-leg",s);class a extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
+    </div>`}}customElements.define("power-puff-leg",o);class a extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
       :host {
         --width: 225px;
         --height: calc(var(--width) + calc(var(--width) * 0.3));
@@ -124,7 +125,7 @@ const l=function(){const r=document.createElement("link").relList;if(r&&r.suppor
         box-shadow: 0 3px 0 #0005;
         z-index: 5;
       }
-      .hair {
+      :host(.bubbles) .hair {
         width: 100%;
         height: 40%;
         background:
@@ -203,4 +204,12 @@ const l=function(){const r=document.createElement("link").relList;if(r&&r.suppor
 
         </div>
       </div>
-    </div>`}}customElements.define("power-puff-girl",a);
+    </div>`}}customElements.define("power-puff-girl",a);class d extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}static get styles(){return`
+     :host {
+
+     }
+   `}connectedCallback(){this.render()}render(){this.shadowRoot.innerHTML=`
+   <style>${d.styles}</style>
+   <div class="container">
+    <power-puff-girl class="bubbles"></power-puff-girl>
+   </div>`}}customElements.define("bubbles-power-puff-girl",d);
